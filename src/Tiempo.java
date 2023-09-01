@@ -34,6 +34,15 @@ public class Tiempo {
         String tostring;
         return this.horas+" h "+this.minutos+" m "+this.segundos+" s ";
 
-
     }
+
+    public static Tiempo sumartiempo(Tiempo tiempito,Tiempo tiempito2){
+        tiempito.setHoras(tiempito.getHoras()+ tiempito2.getHoras());
+        tiempito.setMinutos(tiempito.getMinutos()+tiempito2.getMinutos());
+        tiempito.setSegundos(tiempito.getSegundos()+tiempito2.getSegundos());
+        return tiempito;
+    }
+
+
+
 }

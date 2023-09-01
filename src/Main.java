@@ -9,5 +9,10 @@ public class Main {
         tiempito.setSegundos(12);
         JOptionPane.showMessageDialog(null,"El tiempo calculado es: "+tiempito.toString());
 
+        Tiempo tiempito2 =new Tiempo();
+        tiempito2.setHoras(8);
+        tiempito2.setMinutos(23);
+        tiempito2.setSegundos(12);
+        JOptionPane.showMessageDialog(null,"El tiempo calculado es: "+Tiempo.sumartiempo(tiempito,tiempito2));
     }
 }
