@@ -26,19 +26,20 @@ public class Main  {
        manager:  numero de empleado, nombre, edad, direccion, rfc.
        objetos 3,herencia1, menu1=5 firmas*/
         List<cliente>listaclientes=new ArrayList<>();
+        List<Empleado>listaempleado=new ArrayList<>();
+        List<Manager>listamanager=new ArrayList<>();
         String sino = "si";
         do {
             int decision = Integer.parseInt(JOptionPane.showInputDialog("Hola bienvenid@ , es un gusto poder atenderte, que deseas realizarr\n"+
                     "1.Agregar clientes\n" +
                     "2.Agregar empleados\n" +
-                    "3.Agregar un unico manager\n" +
+                    "3.Agregar un manager\n" +
                     "4.Eliminar clientes\n" +
                     "5.Eleminar empleados\n"+
                     "6.Mostrar clientes\n"+
                     "7.Mostrar empleados\n"));
             switch (decision) {
                 case 1:
-
                     cliente cliente1=new cliente();
                     cliente1.setNumero_afilador(Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de afilador: ")));
                     cliente1.setNombre(JOptionPane.showInputDialog("Ingresa tu nombre:"));
@@ -46,24 +47,53 @@ public class Main  {
                     cliente1.setDireccion(JOptionPane.showInputDialog("Ingresa tu direccion: "));
                     cliente1.setRfc(JOptionPane.showInputDialog("Ingresa tu rfc:"));
                     listaclientes.add(cliente1);
-                    listaclientes.remove(0);
+                    break;
                 case 2:
-                    List<Empleado>listaempleado=new ArrayList<>();
                     Empleado empleadito= new Empleado();
-
+                    empleadito.setNum_empleado((Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de empleado: "))));
+                    empleadito.setNombre(JOptionPane.showInputDialog("Ingresa tu nombre:"));
+                    empleadito.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Ingresa tu edad")));
+                    empleadito.setDireccion(JOptionPane.showInputDialog("Ingresa tu direccion"));
+                    empleadito.setHorario(JOptionPane.showInputDialog("Ingresa tu horario: "));
+                    empleadito.setSalario(Double.parseDouble(JOptionPane.showInputDialog("Ingresa tu salario: ")));
+                    listaempleado.add(empleadito);
 
                     break;
                 case 3:
+                    Manager manager1=new Manager();
+                    manager1.setNumero_empleado((Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de empleado: "))));
+                    manager1 .setNombre(JOptionPane.showInputDialog("Ingresa tu nombre:"));
+                    manager1.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Ingresa tu edad")));
+                    manager1.setDireccion(JOptionPane.showInputDialog("Ingresa tu direccion"));
+                    manager1.setRfc(JOptionPane.showInputDialog("Ingresa tu rfc:"));
 
                     break;
                 case 4:
+
+                    listaclientes.remove(Integer.parseInt(JOptionPane.showInputDialog("Ingresa el num de afilador del cilente que deseas eliminar: "))-1);
                     break;
                 case 5:
+                    listaempleado.remove(Integer.parseInt(JOptionPane.showInputDialog("Ingresa el num del empleado que deseas eliminar: "))-1);
                     break;
 
                 case 6:
                     for (cliente clienteactual:listaclientes) {
-                        JOptionPane.showMessageDialog(null,"NOMBRE:"+clienteactual.getNombre());
+                        JOptionPane.showMessageDialog(null,"Num emppleado: "+clienteactual.getNumero_afilador());
+                        JOptionPane.showMessageDialog(null,"Nombre: "+clienteactual.getNombre());
+                        JOptionPane.showMessageDialog(null,"Edad: "+clienteactual.getEdad());
+                        JOptionPane.showMessageDialog(null,"Direccion: "+clienteactual.getDireccion());
+                        JOptionPane.showMessageDialog(null,"RFC: "+clienteactual.getRfc());
+
+                    }
+                    break;
+                case 7:
+                    for (Empleado empleadoactual:listaempleado) {
+                        JOptionPane.showMessageDialog(null,"Num afilador: "+ empleadoactual.getNum_empleado());
+                        JOptionPane.showMessageDialog(null,"Nombre: "+empleadoactual.getNombre());
+                        JOptionPane.showMessageDialog(null,"Edad: "+empleadoactual.getEdad());
+                        JOptionPane.showMessageDialog(null,"Direccion: "+empleadoactual.getDireccion());
+                        JOptionPane.showMessageDialog(null,"Horario: "+empleadoactual.getHorario());
+                        JOptionPane.showMessageDialog(null,"Salario: "+empleadoactual.getSalario());
 
                     }
                     break;
@@ -71,8 +101,8 @@ public class Main  {
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresa un dato valido");
                     break;
-        }
-        sino=JOptionPane.showInputDialog(null,"Deseas reperir el programa ");
-    }while (sino.equals("si") || sino.equals("SI") || sino.equals("Si"));
+            }
+            sino=JOptionPane.showInputDialog(null,"Deseas reperir el programa ");
+        }while (sino.equals("si") || sino.equals("SI") || sino.equals("Si"));
     }
 }
